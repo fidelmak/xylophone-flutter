@@ -9,124 +9,51 @@ class XylophoneApp extends StatelessWidget {
     player.play(AssetSource('note$soundNumber.wav'));
   }
 
+  Expanded buildKey({
+    required Color color,
+    required int soundNumber,
+  }) {
+    return Expanded(
+        child: TextButton(
+      onPressed: () {
+        playSound(soundNumber);
+      },
+      style: TextButton.styleFrom(
+        backgroundColor: color,
+        primary: Colors.white,
+      ),
+      child: Text(
+        'play sound 😊',
+        style: TextStyle(fontSize: 24),
+      ),
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              TextButton(
-                onPressed: () {
-                  playSound(1);
-                },
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.red,
-                  primary: Colors.white,
-                ),
-                child: Text(
-                  'click me',
-                  style: TextStyle(fontSize: 24),
-                ),
-              ),
-              SizedBox(height: 20),
-              TextButton(
-                onPressed: () {
-                  playSound(2);
-                },
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.green[400],
-                  primary: Colors.white,
-                ),
-                child: Text(
-                  'click me',
-                  style: TextStyle(fontSize: 24),
-                ),
-              ),
-              SizedBox(height: 20),
-              TextButton(
-                onPressed: () {
-                  playSound(3);
-                },
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.blue[300],
-                  primary: Colors.white,
-                ),
-                child: Text(
-                  'click me',
-                  style: TextStyle(fontSize: 24),
-                ),
-              ),
-              SizedBox(height: 20),
-              TextButton(
-                onPressed: () {
-                  playSound(4);
-                },
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.green[400],
-                  primary: Colors.white,
-                ),
-                child: Text(
-                  'click me',
-                  style: TextStyle(fontSize: 24),
-                ),
-              ),
-              SizedBox(height: 20),
-              TextButton(
-                onPressed: () {
-                  playSound(5);
-                },
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  primary: Colors.white,
-                ),
-                child: Text(
-                  'click me',
-                  style: TextStyle(fontSize: 24),
-                ),
-              ),
-              SizedBox(height: 20),
-              TextButton(
-                onPressed: () {
-                  playSound(6);
-                },
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.purple[300],
-                  primary: Colors.white,
-                ),
-                child: Text(
-                  'click me',
-                  style: TextStyle(fontSize: 24),
-                ),
-              ),
-              SizedBox(height: 20),
-              TextButton(
-                onPressed: () {
-                  playSound(7);
-                },
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.amber[300],
-                  primary: Colors.white,
-                ),
-                child: Text(
-                  'click me',
-                  style: TextStyle(fontSize: 24),
-                ),
-              ),
-              SizedBox(height: 20),
-              TextButton(
-                onPressed: () {
-                  playSound(1);
-                },
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.red[300],
-                  primary: Colors.white,
-                ),
-                child: Text(
-                  'click me',
-                  style: TextStyle(fontSize: 24),
-                ),
-              ),
+              buildKey(color: Colors.red, soundNumber: 1),
+              SizedBox(height: 10),
+              buildKey(color: Colors.green, soundNumber: 2),
+              SizedBox(height: 10),
+              buildKey(color: Colors.blue, soundNumber: 3),
+              SizedBox(height: 10),
+              buildKey(color: Colors.indigo, soundNumber: 4),
+              SizedBox(height: 10),
+              buildKey(color: Color.fromARGB(255, 112, 101, 1), soundNumber: 5),
+              SizedBox(height: 10),
+              buildKey(color: Colors.pink, soundNumber: 6),
+              SizedBox(height: 10),
+              buildKey(color: Colors.purple, soundNumber: 7),
+              SizedBox(height: 10),
+              buildKey(color: Colors.red, soundNumber: 1),
             ],
           ),
         ),
